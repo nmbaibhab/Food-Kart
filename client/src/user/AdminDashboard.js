@@ -43,8 +43,18 @@ const AdminDashboard = () => {
       <div className="card mb-5">
         <h3 className="card-header">User information</h3>
         <ul className="list-group">
-          <li className="list-group-item">{name}</li>
-          <li className="list-group-item">{email}</li>
+          <li className="list-group-item">
+            <b>Name: </b>
+            {name}
+          </li>
+          <li className="list-group-item">
+            <b>Email: </b>
+            {email}
+          </li>
+          <li className="list-group-item">
+            <b>User Id: </b>
+            {_id}
+          </li>
           <li className="list-group-item">
             {role === 1 ? "Admin" : "Registered user"}
           </li>

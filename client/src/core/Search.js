@@ -1,36 +1,36 @@
 import React, { useState, useEffect } from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+// import { makeStyles } from "@material-ui/core/styles";
+// import InputLabel from "@material-ui/core/InputLabel";
+// import MenuItem from "@material-ui/core/MenuItem";
+// import FormHelperText from "@material-ui/core/FormHelperText";
+// import FormControl from "@material-ui/core/FormControl";
+// import Select from "@material-ui/core/Select";
+// import TextField from "@material-ui/core/TextField";
+// import Button from "@material-ui/core/Button";
 import SearchIcon from "@material-ui/icons/Search";
 
 import { getCategories, list } from "./apiCore";
 import Card from "./Card";
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-  tField: {
-    width: 800,
-    marginTop: 2,
-  },
-  root: {
-    "& > *": {
-      margin: theme.spacing(2),
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   formControl: {
+//     margin: theme.spacing(1),
+//     minWidth: 120,
+//   },
+//   selectEmpty: {
+//     marginTop: theme.spacing(1),
+//   },
+//   tField: {
+//     width: 600,
+//     marginTop: 3,
+//   },
+//   root: {
+//     "& > *": {
+//       margin: theme.spacing(3),
+//     },
+//   },
+// }));
 
 const Search = () => {
   const [data, setData] = useState({
@@ -111,38 +111,71 @@ const Search = () => {
     );
   };
 
-  const classes = useStyles();
+  // const classes = useStyles();
 
-  const searchForm = () => (
-    <form onSubmit={searchSubmit} className={classes.root}>
-      <span className="input-group-text">
-        <div className="input-group input-group-lg">
-          <div className="input-group-prepend">
-            <FormControl className={classes.formControl}>
-              <InputLabel id="demo-simple-select-helper-label">
-                Select
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-placeholder-label-label"
-                id="demo-simple-select-placeholder-label"
-                value={data.name}
-                onChange={handleChange("category")}
-                displayEmpty
-                className={classes.selectEmpty}
-              >
-                <MenuItem value="All">
-                  <em>All</em>
-                </MenuItem>
-                {categories.map((c, i) => (
-                  <MenuItem key={i} value={c._id}>
-                    {c.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </div>
+  // const searchForm = () => (
+  //   <form onSubmit={searchSubmit} className={classes.root}>
+  //     <span className="input-group-text">
+  //       <div className="input-group input-group-lg">
+  //         <div className="input-group-prepend">
+  //           <FormControl className={classes.formControl}>
+  //             <InputLabel id="demo-simple-select-helper-label">
+  //               Select
+  //             </InputLabel>
+  //             <Select
+  //               labelId="demo-simple-select-placeholder-label-label"
+  //               id="demo-simple-select-placeholder-label"
+  //               value={data.name}
+  //               onChange={handleChange("category")}
+  //               displayEmpty
+  //               // className={classes.selectEmpty}
+  //               className="dropdown-menu"
+  //             >
+  //               <MenuItem value="All">
+  //                 <em>All</em>
+  //               </MenuItem>
+  //               {categories.map((c, i) => (
+  //                 <MenuItem key={i} value={c._id}>
+  //                   {c.name}
+  //                 </MenuItem>
+  //               ))}
+  //             </Select>
+  //           </FormControl>
+  //         </div>
 
-          <TextField
+  //         <TextField
+  //           onChange={handleChange("search")}
+  //           id="outlined-basic"
+  //           label={
+  //             <span>
+  //               <SearchIcon />
+  //               Search by name
+  //             </span>
+  //           }
+  //           variant="outlined"
+  //           className={classes.tField}
+  //           autoComplete="off"
+  //         />
+
+  //         <div className="ml-3 mt-2" style={{ border: "none" }}>
+  //           <Button ml={2} variant="contained" color="primary" type="submit">
+  //             Search
+  //           </Button>
+  //         </div>
+  //       </div>
+  //     </span>
+  //   </form>
+  // );
+
+  const searchForm2 = () => (
+    <div className="search-box col-md-12">
+      <form onSubmit={searchSubmit}>
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            placeholder="Search your favourite food now!!"
+            className="form-control border-3 border-dark rounded"
+            aria-label="Search input with dropdown button"
             onChange={handleChange("search")}
             id="outlined-basic"
             label={
@@ -152,23 +185,21 @@ const Search = () => {
               </span>
             }
             variant="outlined"
-            className={classes.tField}
             autoComplete="off"
           />
-
-          <div className="ml-3 mt-2" style={{ border: "none" }}>
-            <Button ml={2} variant="contained" color="primary" type="submit">
-              Search
-            </Button>
+          <div className="input-group-append mx-1 border-3 border-success rounded">
+            <button className="btn btn-outline-success rounded" type="submit">
+              <b>Search</b>
+            </button>
           </div>
         </div>
-      </span>
-    </form>
+      </form>
+    </div>
   );
-
   return (
-    <div className="row">
-      <div className="container mb-3">{searchForm()}</div>
+    <div className="">
+      {/* <div className="container mb-3">{searchForm()}</div> */}
+      <div className="container mb-3">{searchForm2()}</div>
       <div className="container-fluid mb-3">{searchedProducts(results)}</div>
     </div>
   );

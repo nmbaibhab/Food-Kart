@@ -1,20 +1,20 @@
-import React from 'react';
-import Menu from './Menu';
-import '../styles.css';
+import React from "react";
+import Menu from "./Menu";
+// import "../index.css";
 
 const Layout = ({
-  title = 'Title',
-  description = 'Description',
+  title = "Title",
+  description = "Description",
   className,
   children,
 }) => (
   <div>
     <Menu />
-    <div className='jumbotron mt-5'>
-      <h2>{title}</h2>
-      <p className='lead'>{description}</p>
+    <div className="mt-20">
+      {/* <h5 className="">{title}</h5> */}
+      {/* <p className='lead'>{description}</p> */}
+      <div className={className}>{children}</div>
     </div>
-    <div className={className}>{children}</div>
   </div>
 );
 
