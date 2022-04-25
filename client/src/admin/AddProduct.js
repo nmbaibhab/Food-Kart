@@ -107,7 +107,9 @@ const AddProduct = () => {
       </div>
 
       <div className="form-group">
-        <label className="text-muted">Recipe Description</label>
+        <label className="text-muted">
+          Recipe Description (max-1000 chars)
+        </label>
         <textarea
           onChange={handleChange("description")}
           className="form-control"
