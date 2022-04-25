@@ -124,7 +124,7 @@ const Card = ({
   const showDescription = (description) => {
     return (
       description && (
-        <p className="card-text">{product.description.substring(0, 200)}</p>
+        <p className="card-text">{product.description.substring(0, 1000)}</p>
       )
     );
   };
