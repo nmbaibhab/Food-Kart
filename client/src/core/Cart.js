@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Layout from './Layout';
-import { getCart } from './cartHelpers';
-import Card from './Card';
-import Checkout from './Checkout';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Layout from "./Layout";
+import { getCart } from "./cartHelpers";
+import Card from "./Card";
+import Checkout from "./Checkout";
 
-import Copyright from './Copyright';
+import Copyright from "./Copyright";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
@@ -37,27 +37,27 @@ const Cart = () => {
 
   const noItemsMessage = () => (
     <h2>
-      Your cart is empty. <br /> <Link to='/shop'>Continue shopping</Link>
+      Your List is empty. <br /> <Link to="/shop">Continue adding</Link>
     </h2>
   );
 
   return (
     <Layout
-      title='Shopping Cart'
-      description='Manage your cart items. Add remove checkout or continue shopping.'
-      className='container-fluid'
+      title="My List"
+      description="Manage your List items. Add remove checkout or continue adding to your List."
+      className="container-fluid"
     >
-      <div className='row'>
-        <div className='col-md-2'></div>
-        <div className='col-md-4'>
+      <div className="row">
+        <div className="col-md-2"></div>
+        <div className="col-md-4">
           {items.length > 0 ? showItems(items) : noItemsMessage()}
         </div>
-        <div className='col-md-4'>
-          <h2 className='mb-4'>Your cart summary</h2>
+        <div className="col-md-4">
+          <h2 className="mb-4">Your List summary</h2>
           <hr />
           <Checkout products={items} setRun={setRun} run={run} />
         </div>
-        <div className='col-md-2'></div>
+        <div className="col-md-2"></div>
       </div>
       <Copyright />
     </Layout>

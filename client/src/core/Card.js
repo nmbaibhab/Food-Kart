@@ -26,6 +26,7 @@ const Card = ({
   showAddToCartButton = true,
   cartUpdate = false,
   showRemoveProductButton = false,
+  description = false,
   setRun = (f) => f, // default value of function
   run = undefined, // default value of undefined
 }) => {
@@ -38,7 +39,7 @@ const Card = ({
       showViewProductButton && (
         <Link href={`/product/${product._id}`} className="mr-2">
           <Button variant="contained" color="primary" className="p-2">
-            View Product
+            View Recipe
           </Button>
         </Link>
       )
@@ -59,7 +60,7 @@ const Card = ({
           color="secondary"
           className="p-2"
         >
-          Add to cart
+          Add to List
         </Button>
       )
     );
@@ -114,8 +115,16 @@ const Card = ({
           // className={classes.button}
           startIcon={<DeleteIcon />}
         >
-          Remove Product
+          Remove Recipe
         </Button>
+      )
+    );
+  };
+
+  const showDescription = (description) => {
+    return (
+      description && (
+        <p className="card-text">{product.description.substring(0, 200)}</p>
       )
     );
   };
@@ -125,9 +134,10 @@ const Card = ({
       <ShowImage item={product} url="product" className="card-img-top" />
       <div className="card-body">
         <h5 className="card-title">{product.name}</h5>
-        <p className="card-text">{product.description.substring(0, 50)}</p>
+        {/* <p className="card-text">{product.description.substring(0, 200)}</p> */}
+        {showDescription(description)}
         <p className="black-10">
-          <b>Price: ₹ </b>
+          <b>Recipe Price: ₹ </b>
           {product.price}
         </p>
         <p className="black-9">
@@ -137,7 +147,7 @@ const Card = ({
         <p className="black-8">
           Added on {moment(product.createdAt).fromNow()}{" "}
         </p>
-        {showStock(product.quantity)}
+        {/* {showStock(product.quantity)} */}
         <br></br>
         <span>
           {showViewButton(showViewProductButton)}

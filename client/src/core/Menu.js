@@ -174,7 +174,7 @@ const MaterialAppBar = ({ history }) => {
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
-            Cart
+            MyList
           </Link>
         </MenuItem>
 
@@ -280,7 +280,7 @@ const MaterialAppBar = ({ history }) => {
                 <Badge badgeContent={itemTotal()} color="secondary">
                   <ShoppingCartIcon />
                 </Badge>
-                <Typography noWrap>Cart</Typography>
+                <Typography noWrap>MyList</Typography>
               </IconButton>
             </Link>
 

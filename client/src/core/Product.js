@@ -42,20 +42,24 @@ const Product = (props) => {
       <div className="row">
         <div className="col-md-2"></div>
         <div className="col-md-4 col-sm-12">
-          <h4>Product Details</h4>
+          <h4>Recipe Details</h4>
           {product && product.description && (
-            <Card product={product} showViewProductButton={false} />
+            <Card
+              product={product}
+              showViewProductButton={false}
+              description={true}
+            />
           )}
         </div>
 
-        <div className="col-md-4">
+        {/* <div className="col-md-4">
           <h4>Related products</h4>
           {relatedProduct.map((p, i) => (
             <div className="mb-3" key={i}>
               <Card product={p} />
             </div>
           ))}
-        </div>
+        </div> */}
         <div className="col-md-2"></div>
       </div>
     </Layout>

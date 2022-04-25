@@ -57,8 +57,8 @@ export default function Signin() {
     event.preventDefault(); // so that browser does not reload
     setValues({ ...values, error: false, loading: true });
     signin({ email, password }).then((data) => {
-      if (data.err) {
-        setValues({ ...values, error: data.err, loading: false });
+      if (data.error) {
+        setValues({ ...values, error: data.error, loading: false });
       } else {
         authenticate(data, () => {
           setValues({

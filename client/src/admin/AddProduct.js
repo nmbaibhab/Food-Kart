@@ -97,7 +97,7 @@ const AddProduct = () => {
       </div>
 
       <div className="form-group">
-        <label className="text-muted">Name</label>
+        <label className="text-muted">Recipe Name</label>
         <input
           onChange={handleChange("name")}
           type="text"
@@ -107,7 +107,7 @@ const AddProduct = () => {
       </div>
 
       <div className="form-group">
-        <label className="text-muted">Description</label>
+        <label className="text-muted">Recipe Description</label>
         <textarea
           onChange={handleChange("description")}
           className="form-control"
@@ -116,7 +116,7 @@ const AddProduct = () => {
       </div>
 
       <div className="form-group">
-        <label className="text-muted">Price</label>
+        <label className="text-muted">Estimated Price</label>
         <input
           onChange={handleChange("price")}
           type="number"
@@ -138,14 +138,14 @@ const AddProduct = () => {
         </select>
       </div>
 
-      <div className="form-group">
+      {/* <div className="form-group">
         <label className="text-muted">Shipping</label>
         <select onChange={handleChange("shipping")} className="form-control">
           <option>Please select</option>
           <option value="0">No</option>
           <option value="1">Yes</option>
         </select>
-      </div>
+      </div> */}
 
       <div className="form-group">
         <label className="text-muted">Quantity</label>
